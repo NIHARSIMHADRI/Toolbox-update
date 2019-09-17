@@ -1,5 +1,6 @@
 package com.example.toolbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -11,14 +12,22 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.*;
+import android.content.*;
 
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RadioGroup radioGroupPhoto;
+    private ImageView imageViewPhoto;
+    private Integer [] photos = {R.drawable.newton, R.drawable.einstein, R.drawable.hawking};
+
 
     DecimalFormat df = new DecimalFormat("####.00");
     double FinalGrade;
@@ -37,6 +46,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        this.imageViewPhoto = (ImageView) findViewById(R.id.imageViewPhoto);
+        this.radioGroupPhoto = (RadioGroup) findViewById(R.id.RadioGroupPhoto);
+        this.radioGroupPhoto.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton radioButton = (RadioButton) radioGroup.findViewById(i);
+                int index = radioGroup.indexOfChild(radioButton);
+                imageViewPhoto.setImageResource(photos[index]);
             }
         });
     }

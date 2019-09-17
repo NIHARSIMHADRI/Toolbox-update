@@ -11,36 +11,27 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="169dp"
-        android:layout_height="280dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginBottom="9dp"
+        android:layout_width="138dp"
+        android:layout_height="283dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="16dp"
         android:drawableTop="@drawable/grade"
         android:onClick="calculateGrade"
         android:text="Calculate Grade"
         android:textColor="#3F51B5"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_meat"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/Q2grade" />
 
     <CheckBox
         android:id="@+id/checkbox_meat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="98dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="28dp"
         android:onClick="message"
         android:text="Display Message"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message" />
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
     <EditText
         android:id="@+id/Q1grade"
@@ -56,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <EditText
         android:id="@+id/Q2grade"
@@ -69,65 +60,69 @@
         android:hint="Enter your Q2 grade: "
         app:layout_constraintBottom_toTopOf="@+id/FinalScore"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q1grade" />
+        app:layout_constraintTop_toBottomOf="@+id/Q1grade"
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <EditText
         android:id="@+id/FinalScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="147dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="24dp"
         android:hint="Enter your grade on your final: "
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="117dp"
-        android:layout_height="178dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="54dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/Q1grade"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/einstein" />
-
-    <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewPhoto"
         android:layout_width="111dp"
         android:layout_height="148dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="33dp"
-        app:layout_constraintEnd_toStartOf="@+id/finalGrade"
-        app:layout_constraintHorizontal_bias="0.037"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/RadioGroupPhoto"
         app:srcCompat="@drawable/newton" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroupPhoto"
+        android:layout_width="214dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_meat" >
+
+        <RadioButton
+            android:id="@+id/radioButton10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Newton" />
+
+        <RadioButton
+            android:id="@+id/radioButton9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Einstein" />
+
+        <RadioButton
+            android:id="@+id/radioButton8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hawking" />
+    </RadioGroup>
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="196dp"
         android:layout_height="33dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="92dp"
         android:onClick="backgroundChange"
         android:text="Change background color"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/FinalScore" />
+        app:layout_constraintBottom_toTopOf="@+id/Q1grade"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -139,7 +134,7 @@
         android:text="Final Grade Calculator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,30 +145,21 @@
         android:id="@+id/finalGrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="317dp"
-        android:layout_marginBottom="217dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="42dp"
         android:text="Grade"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_meat" />
 
     <TextView
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="153dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
         android:text="message"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/finalGrade"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/finalGrade" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
