@@ -22,8 +22,8 @@ import android.content.*;
 
 import java.text.DecimalFormat;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    String[] ratings = {"amazing", "ok", "terrible"};
     private RadioGroup radioGroupPhoto;
     private ImageView imageViewPhoto;
     private Integer [] photos = {R.drawable.newton, R.drawable.einstein, R.drawable.hawking};
@@ -57,8 +57,34 @@ public class MainActivity extends AppCompatActivity {
                 RadioButton radioButton = (RadioButton) radioGroup.findViewById(i);
                 int index = radioGroup.indexOfChild(radioButton);
                 imageViewPhoto.setImageResource(photos[index]);
-            }
-        });
+    }
+});
+        //Getting the instance of Spinner and applying OnItemSelectedListener on it
+        Spinner spin = (Spinner) findViewById(R.id.spinner);
+        spin.setOnItemSelectedListener(this);
+
+        //Creating the ArrayAdapter instance having the country list
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,ratings);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin.setAdapter(aa);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        TextView ratingComment = (TextView) findViewById(R.id.ratingComment);
+        Toast.makeText(getApplicationContext(),ratings[position] , Toast.LENGTH_LONG).show();
+        if (position == 0) {
+            ratingComment.setText("Glad you liked it");
+        } else if (position == 1) {
+            ratingComment.setText("Thanks for the feedback");
+        } else if (position == 2) {
+            ratingComment.setText("Sorry about that");
+        }
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
     }
 
     public void calculateGrade(View v){
