@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.*;
 import android.content.*;
 
+import org.w3c.dom.Text;
+
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     DecimalFormat df = new DecimalFormat("####.00");
     double FinalGrade;
     View v;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,10 +123,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void backgroundChange(View v){
         boolean checked = ((Switch) v).isChecked();
+        TextView tv1 = (TextView) findViewById(R.id.message);
+        TextView tv2 = (TextView) findViewById(R.id.ratingComment);
         if (checked) {
-            v.setBackgroundResource(R.color.coolblue);
+            tv1.setBackgroundColor(getResources().getColor(R.color.coolblue));
+            tv2.setBackgroundColor(getResources().getColor(R.color.coolblue));
         } else {
-            v.setBackgroundResource(R.color.coolgreen);
+            tv1.setBackgroundColor(getResources().getColor(R.color.coolgreen));
+            tv2.setBackgroundColor(getResources().getColor(R.color.coolgreen));
         }
     }
 
